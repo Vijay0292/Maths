@@ -1,0 +1,83 @@
+/*Write a program that given the digits of two numbers A and B prints out the digits of the sum.    The first input is N, the number of digits in A as well as B.  After this,
+
+the digits of A and B will be given one by one from least significant to the most significant.  Your program should print the ith digit of the sum before reading the (i+1)th digit of A and B. You should print N+1 digits for the sum, where the most significant digit can be 0. The length N of the numbers can be large, so in general it won’t be possible to store A or B in the “int” or “long long” data type.  Your program should mimic the manual addition process you learned in primary school, i.e. add digits consecutively together with the carry if any, with initially there being no carry.  Note that if a computer has to do arithmetic on numbers with hundreds of digits, it will be done in the manner of your program.
+
+
+For example, the sum of the numbers 12945 and 89597 is 102542.  Then the first input will be 5, the number of digits in A,B.  Then the least significant digits will be given, 5 and 7.   Then next least significant, 4, 9 and so on.  This example is shown in full in the third Sample Test Case below.
+
+
+Note: Please do not include the header files. Start writing your code from main_program.
+Input
+
+
+### First line contains an integer ###
+
+N- the number of digits in the numbers
+
+0<N<100
+
+
+### Followed by N lines ###
+
+A1 B1
+
+A2 B2
+
+.
+
+.
+
+AN BN
+
+
+Ai is the ith least significant digit of the number A. 
+
+Bi is the ith least significant digit of the number B.
+
+0<= Ai , Bi <=9
+
+
+Output
+
+The output should be N+1 digits of the sum A+B starting from the least significant. The (N+1)th digit can be 0 in case there is no carry. Note that each digit must appear in a new line. 
+
+
+If S=A+B, the output should be
+
+S1
+
+S2
+
+.
+
+.
+
+SN
+
+SN+1
+
+Where Si is the ith least significant digit of the sum S.*/
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n, x, y, sum =0;
+	cin>>n;
+	int a[n], b[n];
+	for(int i=0; i<n; i++)
+	{
+	    cin>>a[i]>>b[i];
+	}
+	for(int i=0; i<n; i++)
+	{
+	    sum = a[i]+b[i]+sum;
+	    x = sum%10;
+	    cout<<x<<endl;
+	    sum = sum/10;
+	}
+	cout<<sum<<endl;
+	return 0;
+}
